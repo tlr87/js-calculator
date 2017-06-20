@@ -12,9 +12,10 @@ body {
   margin: 0 auto;
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
-  -webkit-box-shadow: 0px 1px 97px 10px rgba(0, 0, 0, 0.61);
-  -moz-box-shadow: 0px 1px 97px 10px rgba(0, 0, 0, 0.61);
-  box-shadow: 0px 1px 97px 10px rgba(0, 0, 0, 0.61);
+  -webkit-box-shadow: inset 0px 0px 20px 15px rgba(0,0,0,0.61);
+  -moz-box-shadow: inset 0px 0px 20px 15px rgba(0,0,0,0.61);
+  box-shadow: inset 0px 0px 20px 15px rgba(0,0,0,0.61);
+  background-image:url(image/brown_leather_256.jpg);
 }
 
 .calculator {
