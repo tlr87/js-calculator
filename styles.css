@@ -30,6 +30,13 @@
   cursor: pointer;
 }
 
+.keyDouble{
+  width:75px!important;
+  height: 20px!important;
+
+}
+
+
 .key:hover {
   background-color: #aaaaaa;
 }

@@ -1,15 +1,58 @@
 //variables
 var a = 0;
-var b = [1];
+var b = 0;
 var c = "";
-
-
-
+var menory = 0;
+var OppSwitch = 0;
+var VarSwitch = 0;
 
 //Keypad functions.
-function one(){
-console.log(1);
-a=a+1;
+function KeypadNumSumA() {
+  console.log(a = a + 1);
+}
+
+function KeypadNumSumB() {
+  console.log(b = b + 1);
+}
+
+
+
+function num() {
+  if (VarSwitch === 0) {
+    KeypadNumSumA();
+  } else if (VarSwitch === 1) {
+    KeypadNumSumB();
+  }
+  
+function PlusFn() {
+  OppSwitch = 1;
+}
+
+function MinusFn() {
+  OppSwitch = 1;
+}
+
+function DivideFn() {
+  OppSwitch = 1;
+}
+
+function MultiplyFn() {
+  OppSwitch = 1;
+}
+
+
+
+
+
+
+function clearVariables() {
+  a = 0;
+  b = 0;
+  c = "";
+  menory = 0;
+  OppSwitch = 0;
+  VarSwitch = 0;
+
 }
 
 
@@ -36,10 +79,6 @@ function multiplyMath(a, b) {
   return a * b;
 }
 
-
-
-
-
 function coreOpp(z) {
   switch (z) {
     case "+":
@@ -54,6 +93,5 @@ function coreOpp(z) {
 }
 console.log(addMath(1, 2));
 console.log(coreMath(1, 2, addMath));
+
 console.log(coreMath(1, 2, coreOpp("+")));
-//"25+6-10" - > calculatorfunc - > answer
-//minusMath(addMath(25, 6), 10)
