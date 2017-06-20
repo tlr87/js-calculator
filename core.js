@@ -2,9 +2,9 @@
 var a = 0;
 var b = 0;
 var c = "";
-var menory = 0;
-var OppSwitch = 0;
-var VarSwitch = 0;
+var memoryBank = 0;
+var OppSwitch = "";
+var VarSwitch = "aVar";
 
 //Keypad functions.
 function KeypadNumSumA() {
@@ -15,34 +15,52 @@ function KeypadNumSumB() {
   console.log(b = b + 1);
 }
 
-
-
 function num() {
-  if (VarSwitch === 0) {
-    KeypadNumSumA();
-  } else if (VarSwitch === 1) {
-    KeypadNumSumB();
+  if (VarSwitch === "aVar") {
+    //KeypadNumSumA();
+  } else if (VarSwitch === "bVar") {
+    //KeypadNumSumB();
   }
-  
+}
+
 function PlusFn() {
   OppSwitch = 1;
+  OppSwitch = "PlusFnTrue";
 }
 
 function MinusFn() {
   OppSwitch = 1;
+  OppSwitch = "MinusFnTrue";
 }
 
 function DivideFn() {
   OppSwitch = 1;
+  OppSwitch = "DivideFnTrue";
 }
 
 function MultiplyFn() {
   OppSwitch = 1;
+  OppSwitch = "MultiplyFnTrue";
 }
 
+function Answer() {
+  if (OppSwitch == "PlusFnTrue") {
+    return memoryBank + coreMath(a, b, addMath);
+  } else if (OppSwitch == "MinusFnTrue") {
+    return memoryBank + coreMath(a, b, minusMath);
+  } else if (OppSwitch == "DivideFnTrue") {
+    return  memoryBank + coreMath(a, b, divideMath);
+  } else if (OppSwitch == "MultiplyFnTrue") {
+    return memoryBank + coreMath(a, b, multiplyMath);
+  } else {
+    alert("Please ues an Operation Button");
+  }
+}
 
-
-
+function printAnswer(){
+  console.log(memoryBank);
+  document.getElementsByClassName("screen")[0].innerHTML = "="+memoryBank;
+}
 
 
 function clearVariables() {
@@ -52,11 +70,7 @@ function clearVariables() {
   menory = 0;
   OppSwitch = 0;
   VarSwitch = 0;
-
 }
-
-
-
 
 //Operation functions
 function coreMath(a, b, c) {
@@ -94,4 +108,4 @@ function coreOpp(z) {
 console.log(addMath(1, 2));
 console.log(coreMath(1, 2, addMath));
 
-console.log(coreMath(1, 2, coreOpp("+")));
+//console.log(coreMath(1, 2, coreOpp("+")));
