@@ -20,13 +20,14 @@
 }
 
 .key {
-  height: 40px;
-  width: 40px;
-  padding: 5px;
+  height: 20px;
+  width: 20px;
+  padding: 15px;
   background-color: #4f4f4f;
   float: left;
   border-style: solid;
   text-align: center;
+  cursor: pointer;
 }
 
 .key:hover {

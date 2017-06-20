@@ -1,21 +1,8 @@
-//variables
 var a = 0;
-var b = [1];
+var b = 0;
 var c = "";
 
 
-
-
-//Keypad functions.
-function one(){
-console.log(1);
-a=a+1;
-}
-
-
-
-
-//Operation functions
 function coreMath(a, b, c) {
   return c(a, b);
 }
@@ -36,11 +23,7 @@ function multiplyMath(a, b) {
   return a * b;
 }
 
-
-
-
-
-function coreOpp(z) {
+function getMathOperation(z) {
   switch (z) {
     case "+":
       return addMath;
@@ -50,10 +33,22 @@ function coreOpp(z) {
       return divideMath;
     case "x":
       return multiplyMath;
+      case "=":
+      return coreMath;
   }
 }
+
+
 console.log(addMath(1, 2));
 console.log(coreMath(1, 2, addMath));
-console.log(coreMath(1, 2, coreOpp("+")));
+console.log(coreMath(1, 2, getMathOperation("+")));
+
+
 //"25+6-10" - > calculatorfunc - > answer
 //minusMath(addMath(25, 6), 10)
+
+var history = ["25","+", "6","="]
+var firstnumber = Number(history[0])
+var firstoperation = getMathOperation(history[1])
+var secondnumber = Number(history[2])
+var secondOperation = getMathOperation(history[3])
