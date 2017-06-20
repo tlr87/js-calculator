@@ -1,0 +1,34 @@
+.container {
+  height: 280px;
+  width: 280px;
+  background-color: #666666;
+  font-family: sans-serif;
+  border-style: solid;
+}
+
+.calculator {
+  height: 200px;
+  width: 220px;
+  margin: 0 auto;
+}
+
+.screen {
+  height: 40px;
+  width: 215px;
+  border-style: solid;
+  background-color: #fff;
+}
+
+.key {
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  background-color: #4f4f4f;
+  float: left;
+  border-style: solid;
+  text-align: center;
+}
+
+.key:hover {
+  background-color: #aaaaaa;
+}
