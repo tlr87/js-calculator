@@ -42,6 +42,7 @@ function PlusFn() {
   OppSwitch = "PlusFnTrue";
   //document.getElementsByClassName("screen")[0].innerHTML = "+";
   document.getElementsByClassName("screen")[0].innerHTML = '';
+  console.log(imputScreen.length = 0);
 }
 
 function MinusFn() {
@@ -49,6 +50,7 @@ function MinusFn() {
   OppSwitch = "MinusFnTrue";
   //document.getElementsByClassName("screen")[0].innerHTML = "-";
   document.getElementsByClassName("screen")[0].innerHTML = '';
+  console.log(imputScreen.length = 0);
 }
 
 function DivideFn() {
@@ -56,6 +58,7 @@ function DivideFn() {
   OppSwitch = "DivideFnTrue";
   //document.getElementsByClassName("screen")[0].innerHTML = "÷";
   document.getElementsByClassName("screen")[0].innerHTML = '';
+  console.log(imputScreen.length = 0);
 }
 
 function MultiplyFn() {
@@ -63,12 +66,13 @@ function MultiplyFn() {
   OppSwitch = "MultiplyFnTrue";
   //document.getElementsByClassName("screen")[0].innerHTML = "x";
   document.getElementsByClassName("screen")[0].innerHTML = '';
+  console.log(imputScreen.length = 0);
 }
 
 function Answer() {
 
   if (OppSwitch == "PlusFnTrue") {
-    alert("Hello you chump!");
+    //alert("Hello you chump!");
     memoryBank = coreMath(a, b, addMath);
   } else if (OppSwitch == "MinusFnTrue") {
     memoryBank = coreMath(a, b, minusMath);
@@ -89,6 +93,14 @@ function printAnswer() {
 function OnEqualClicked(){
   Answer();
   printAnswer();
+  console.log(imputScreen.length = 0);
+  a = 0;
+  b = 0;
+  c = "";
+  OppSwitch = "";
+  VarSwitch = "aVar";
+  KeyCount = 0;
+  v = 0;
 }
 
 
