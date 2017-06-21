@@ -4,10 +4,11 @@ var b = 0;
 var c = "";
 var memoryBank = 0;
 var OppSwitch = "";
-var VarSwitch = "aVar";
+var VarSwitch = false;
 var KeyCount = 0;
 var v = 0;
-var imputScreen  = [];
+var imputScreen = [];
+var screenTemp = 0;
 
 //Keypad functions.
 function KeypadNumSumA() {
@@ -19,52 +20,75 @@ function KeypadNumSumB() {
 }
 
 function num(v) {
-
+  console.log('VarSwitch is ' + VarSwitch);
   imputScreen.push(v);
   var screenTemp = imputScreen.join('');
-  console.log(Number(screenTemp));
-  console.log(imputScreen);
+  var number = Number(screenTemp);
   document.getElementsByClassName("screen")[0].innerHTML = screenTemp;
-
+  //memoryBank = number;
+  if (VarSwitch === false) {
+    a = number;
+    console.log("VarSwitch" + a);
+  } else if (VarSwitch === true) {
+    b = number;
+    console.log("VarSwitch" + b);
+  }
+  //console.log('memoryBank is ' + memoryBank);
 }
 
 function PlusFn() {
-  OppSwitch = 1;
+  VarSwitch = true;
+  console.log('VarSwitch is ' + VarSwitch);
   OppSwitch = "PlusFnTrue";
+  //document.getElementsByClassName("screen")[0].innerHTML = "+";
+  document.getElementsByClassName("screen")[0].innerHTML = '';
 }
 
 function MinusFn() {
-  OppSwitch = 1;
+  VarSwitch = true;
   OppSwitch = "MinusFnTrue";
+  //document.getElementsByClassName("screen")[0].innerHTML = "-";
+  document.getElementsByClassName("screen")[0].innerHTML = '';
 }
 
 function DivideFn() {
-  OppSwitch = 1;
+  VarSwitch = true;
   OppSwitch = "DivideFnTrue";
+  //document.getElementsByClassName("screen")[0].innerHTML = "÷";
+  document.getElementsByClassName("screen")[0].innerHTML = '';
 }
 
 function MultiplyFn() {
-  OppSwitch = 1;
+  VarSwitch = true;
   OppSwitch = "MultiplyFnTrue";
+  //document.getElementsByClassName("screen")[0].innerHTML = "x";
+  document.getElementsByClassName("screen")[0].innerHTML = '';
 }
 
 function Answer() {
+
   if (OppSwitch == "PlusFnTrue") {
-    return memoryBank + coreMath(a, b, addMath);
+    alert("Hello you chump!");
+    memoryBank = coreMath(a, b, addMath);
   } else if (OppSwitch == "MinusFnTrue") {
-    return memoryBank + coreMath(a, b, minusMath);
+    memoryBank = coreMath(a, b, minusMath);
   } else if (OppSwitch == "DivideFnTrue") {
-    return  memoryBank + coreMath(a, b, divideMath);
+    memoryBank = coreMath(a, b, divideMath);
   } else if (OppSwitch == "MultiplyFnTrue") {
-    return memoryBank + coreMath(a, b, multiplyMath);
+    memoryBank = coreMath(a, b, multiplyMath);
   } else {
     alert("Please ues an Operation Button");
   }
 }
 
-function printAnswer(){
+function printAnswer() {
   console.log(memoryBank);
   document.getElementsByClassName("screen")[0].innerHTML = memoryBank;
+}
+
+function OnEqualClicked(){
+  Answer();
+  printAnswer();
 }
 
 
@@ -72,9 +96,13 @@ function clearVariables() {
   a = 0;
   b = 0;
   c = "";
-  menory = 0;
-  OppSwitch = 0;
-  VarSwitch = 0;
+  memoryBank = 0;
+  OppSwitch = "";
+  VarSwitch = "aVar";
+  KeyCount = 0;
+  v = 0;
+  console.log(imputScreen.length = 0);
+  console.log(document.getElementsByClassName("screen")[0].innerHTML = '');
 }
 
 //Operation functions
@@ -112,5 +140,3 @@ function coreOpp(z) {
 }
 console.log(addMath(1, 2));
 console.log(coreMath(1, 2, addMath));
-
-//console.log(coreMath(1, 2, coreOpp("+")));
