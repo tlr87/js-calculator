@@ -5,6 +5,9 @@ var c = "";
 var memoryBank = 0;
 var OppSwitch = "";
 var VarSwitch = "aVar";
+var KeyCount = 0;
+var v = 0;
+var imputScreen  = [];
 
 //Keypad functions.
 function KeypadNumSumA() {
@@ -15,12 +18,14 @@ function KeypadNumSumB() {
   console.log(b = b + 1);
 }
 
-function num() {
-  if (VarSwitch === "aVar") {
-    //KeypadNumSumA();
-  } else if (VarSwitch === "bVar") {
-    //KeypadNumSumB();
-  }
+function num(v) {
+
+  imputScreen.push(v);
+  var screenTemp = imputScreen.join('');
+  console.log(Number(screenTemp));
+  console.log(imputScreen);
+  document.getElementsByClassName("screen")[0].innerHTML = screenTemp;
+
 }
 
 function PlusFn() {
@@ -59,7 +64,7 @@ function Answer() {
 
 function printAnswer(){
   console.log(memoryBank);
-  document.getElementsByClassName("screen")[0].innerHTML = "="+memoryBank;
+  document.getElementsByClassName("screen")[0].innerHTML = memoryBank;
 }
 
 
