@@ -11,21 +11,12 @@ var imputScreen = [];
 var screenTemp = 0;
 
 //Keypad functions.
-function KeypadNumSumA() {
-  console.log(a = a + 1);
-}
-
-function KeypadNumSumB() {
-  console.log(b = b + 1);
-}
-
 function num(v) {
   console.log('VarSwitch is ' + VarSwitch);
   imputScreen.push(v);
   var screenTemp = imputScreen.join('');
   var number = Number(screenTemp);
   document.getElementsByClassName("screen")[0].innerHTML = screenTemp;
-  //memoryBank = number;
   if (VarSwitch === false) {
     a = number;
     console.log("VarSwitch" + a);
@@ -33,14 +24,13 @@ function num(v) {
     b = number;
     console.log("VarSwitch" + b);
   }
-  //console.log('memoryBank is ' + memoryBank);
+
 }
 
 function PlusFn() {
   VarSwitch = true;
   console.log('VarSwitch is ' + VarSwitch);
   OppSwitch = "PlusFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "+";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -48,7 +38,6 @@ function PlusFn() {
 function MinusFn() {
   VarSwitch = true;
   OppSwitch = "MinusFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "-";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -56,7 +45,6 @@ function MinusFn() {
 function DivideFn() {
   VarSwitch = true;
   OppSwitch = "DivideFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "÷";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -64,7 +52,6 @@ function DivideFn() {
 function MultiplyFn() {
   VarSwitch = true;
   OppSwitch = "MultiplyFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "x";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -72,7 +59,6 @@ function MultiplyFn() {
 function Answer() {
 
   if (OppSwitch == "PlusFnTrue") {
-    //alert("Hello you chump!");
     memoryBank = coreMath(a, b, addMath);
   } else if (OppSwitch == "MinusFnTrue") {
     memoryBank = coreMath(a, b, minusMath);
@@ -90,7 +76,7 @@ function printAnswer() {
   document.getElementsByClassName("screen")[0].innerHTML = memoryBank;
 }
 
-function OnEqualClicked(){
+function OnEqualClicked() {
   Answer();
   printAnswer();
   console.log(imputScreen.length = 0);
@@ -150,5 +136,3 @@ function coreOpp(z) {
       return multiplyMath;
   }
 }
-console.log(addMath(1, 2));
-console.log(coreMath(1, 2, addMath));
