@@ -1,7 +1,7 @@
 //variables
-var a = 0;
-var b = 0;
-var c = "";
+var value_one = 0;
+var value_two = 0;
+var Opp= "";
 var memoryBank = 0;
 var OppSwitch = "";
 var VarSwitch = false;
@@ -18,10 +18,10 @@ function num(v) {
   var number = Number(screenTemp);
   document.getElementsByClassName("screen")[0].innerHTML = screenTemp;
   if (VarSwitch === false) {
-    a = number;
+    value_one = number;
     console.log("VarSwitch" + a);
   } else if (VarSwitch === true) {
-    b = number;
+    value_two = number;
     console.log("VarSwitch" + b);
   }
 
@@ -59,13 +59,13 @@ function MultiplyFn() {
 function Answer() {
 
   if (OppSwitch == "PlusFnTrue") {
-    memoryBank = coreMath(a, b, addMath);
+    memoryBank = coreMath( value_one , value_two , addMath);
   } else if (OppSwitch == "MinusFnTrue") {
-    memoryBank = coreMath(a, b, minusMath);
+    memoryBank = coreMath( value_one , value_two , minusMath);
   } else if (OppSwitch == "DivideFnTrue") {
-    memoryBank = coreMath(a, b, divideMath);
+    memoryBank = coreMath( value_one , value_two , divideMath);
   } else if (OppSwitch == "MultiplyFnTrue") {
-    memoryBank = coreMath(a, b, multiplyMath);
+    memoryBank = coreMath( value_one , value_two , multiplyMath);
   } else {
     alert("Please ues an Operation Button");
   }
@@ -80,9 +80,9 @@ function OnEqualClicked() {
   Answer();
   printAnswer();
   console.log(imputScreen.length = 0);
-  a = 0;
-  b = 0;
-  c = "";
+  value_one = 0;
+  value_two = 0;
+ Opp= "";
   OppSwitch = "";
   VarSwitch = "aVar";
   KeyCount = 0;
@@ -91,9 +91,9 @@ function OnEqualClicked() {
 
 
 function clearVariables() {
-  a = 0;
-  b = 0;
-  c = "";
+  value_one = 0;
+  value_two = 0;
+ Opp= "";
   memoryBank = 0;
   OppSwitch = "";
   VarSwitch = "aVar";
@@ -104,35 +104,22 @@ function clearVariables() {
 }
 
 //Operation functions
-function coreMath(a, b, c) {
-  return c(a, b);
+function coreMath( value_one , value_two , Opp) {
+  return Opp( value_one , value_two );
 }
 
-function addMath(a, b) {
-  return a + b;
+function addMath( value_one , value_two ) {
+  return value_one + b;
 }
 
-function minusMath(a, b) {
-  return a - b;
+function minusMath( value_one , value_two ) {
+  return value_one - b;
 }
 
-function divideMath(a, b) {
-  return a / b;
+function divideMath( value_one , value_two ) {
+  return value_one / b;
 }
 
-function multiplyMath(a, b) {
-  return a * b;
-}
-
-function coreOpp(z) {
-  switch (z) {
-    case "+":
-      return addMath;
-    case "-":
-      return minusMath;
-    case "÷":
-      return divideMath;
-    case "x":
-      return multiplyMath;
-  }
+function multiplyMath( value_one , value_two ) {
+  return value_one * b;
 }
