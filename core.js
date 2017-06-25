@@ -1,46 +1,32 @@
 //variables
-var a = 0;
-var b = 0;
-var c = "";
+var value_one = 0;
+var value_two = 0;
+var Opp = "";
 var memoryBank = 0;
 var OppSwitch = "";
 var VarSwitch = false;
 var KeyCount = 0;
-var v = 0;
+var keyVal = 0;
 var imputScreen = [];
 var screenTemp = 0;
 
 //Keypad functions.
-function KeypadNumSumA() {
-  console.log(a = a + 1);
-}
-
-function KeypadNumSumB() {
-  console.log(b = b + 1);
-}
-
-function num(v) {
-  console.log('VarSwitch is ' + VarSwitch);
-  imputScreen.push(v);
+function num(keyVal) {
+  imputScreen.push(keyVal);
   var screenTemp = imputScreen.join('');
   var number = Number(screenTemp);
   document.getElementsByClassName("screen")[0].innerHTML = screenTemp;
-  //memoryBank = number;
   if (VarSwitch === false) {
-    a = number;
-    console.log("VarSwitch" + a);
+    value_one = number;
   } else if (VarSwitch === true) {
-    b = number;
-    console.log("VarSwitch" + b);
+    value_two = number;
   }
-  //console.log('memoryBank is ' + memoryBank);
 }
 
 function PlusFn() {
   VarSwitch = true;
   console.log('VarSwitch is ' + VarSwitch);
   OppSwitch = "PlusFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "+";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -48,7 +34,6 @@ function PlusFn() {
 function MinusFn() {
   VarSwitch = true;
   OppSwitch = "MinusFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "-";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -56,7 +41,6 @@ function MinusFn() {
 function DivideFn() {
   VarSwitch = true;
   OppSwitch = "DivideFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "÷";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -64,7 +48,6 @@ function DivideFn() {
 function MultiplyFn() {
   VarSwitch = true;
   OppSwitch = "MultiplyFnTrue";
-  //document.getElementsByClassName("screen")[0].innerHTML = "x";
   document.getElementsByClassName("screen")[0].innerHTML = '';
   console.log(imputScreen.length = 0);
 }
@@ -72,14 +55,13 @@ function MultiplyFn() {
 function Answer() {
 
   if (OppSwitch == "PlusFnTrue") {
-    //alert("Hello you chump!");
-    memoryBank = coreMath(a, b, addMath);
+    memoryBank = coreMath(value_one, value_two, addMath);
   } else if (OppSwitch == "MinusFnTrue") {
-    memoryBank = coreMath(a, b, minusMath);
+    memoryBank = coreMath(value_one, value_two, minusMath);
   } else if (OppSwitch == "DivideFnTrue") {
-    memoryBank = coreMath(a, b, divideMath);
+    memoryBank = coreMath(value_one, value_two, divideMath);
   } else if (OppSwitch == "MultiplyFnTrue") {
-    memoryBank = coreMath(a, b, multiplyMath);
+    memoryBank = coreMath(value_one, value_two, multiplyMath);
   } else {
     alert("Please ues an Operation Button");
   }
@@ -90,65 +72,35 @@ function printAnswer() {
   document.getElementsByClassName("screen")[0].innerHTML = memoryBank;
 }
 
-function OnEqualClicked(){
+function OnEqualClicked() {
   Answer();
   printAnswer();
-  console.log(imputScreen.length = 0);
-  a = 0;
-  b = 0;
-  c = "";
-  OppSwitch = "";
-  VarSwitch = "aVar";
-  KeyCount = 0;
-  v = 0;
+  timerClear = setTimeout(clearVariables, 4000);
 }
 
 
 function clearVariables() {
-  a = 0;
-  b = 0;
-  c = "";
-  memoryBank = 0;
-  OppSwitch = "";
-  VarSwitch = "aVar";
-  KeyCount = 0;
-  v = 0;
   console.log(imputScreen.length = 0);
   console.log(document.getElementsByClassName("screen")[0].innerHTML = '');
 }
 
 //Operation functions
-function coreMath(a, b, c) {
-  return c(a, b);
+function coreMath(value_one, value_two, Opp) {
+  return Opp(value_one, value_two);
 }
 
-function addMath(a, b) {
-  return a + b;
+function addMath(value_one, value_two) {
+  return value_one + value_two;
 }
 
-function minusMath(a, b) {
-  return a - b;
+function minusMath(value_one, value_two) {
+  return value_one - value_two;
 }
 
-function divideMath(a, b) {
-  return a / b;
+function divideMath(value_one, value_two) {
+  return value_one / value_two;
 }
 
-function multiplyMath(a, b) {
-  return a * b;
+function multiplyMath(value_one, value_two) {
+  return value_one * value_two;
 }
-
-function coreOpp(z) {
-  switch (z) {
-    case "+":
-      return addMath;
-    case "-":
-      return minusMath;
-    case "÷":
-      return divideMath;
-    case "x":
-      return multiplyMath;
-  }
-}
-console.log(addMath(1, 2));
-console.log(coreMath(1, 2, addMath));
